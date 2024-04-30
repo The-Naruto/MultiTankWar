@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp4e30s0k061t"]
+
+[ext_resource type="Script" path="res://Test01.cs" id="1_bgmba"]
+
+[node name="Test" type="Control" node_paths=PackedStringArray("_textEdit", "_richTextLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bgmba")
+_textEdit = NodePath("TextEdit")
+_richTextLabel = NodePath("RichTextLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 205.0
+offset_right = 363.0
+offset_bottom = 549.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "连接"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "发送"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 2
+offset_left = 452.0
+offset_top = 48.0
+offset_right = 796.0
+offset_bottom = 154.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 219.0
+offset_right = 859.0
+offset_bottom = 559.0
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="Connect"]
+[connection signal="button_down" from="VBoxContainer/Button2" to="." method="Send"]
