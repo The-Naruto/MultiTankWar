@@ -19,7 +19,7 @@ var hostBuilder = Host.CreateDefaultBuilder(args);
 hostBuilder.ConfigureServices((context, services) =>
 {
      
-    services.AddHostedService<MyServer01>();
+    services.AddHostedService<MyServer02>();
 });
 
 
