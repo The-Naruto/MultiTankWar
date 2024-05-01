@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxv4o8wak54mh"]
+
+[ext_resource type="Texture2D" uid="uid://dt863jyne6hkg" path="res://assets/Bullets/bulletBlueSilver_outline.png" id="1_tmnw5"]
+[ext_resource type="Script" path="res://Projectile.cs" id="1_trn4i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1jae"]
+radius = 9.98799
+height = 36.0487
+
+[node name="Projectile" type="Node2D"]
+scale = Vector2(0.998632, 1)
+script = ExtResource("1_trn4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_tmnw5")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+scale = Vector2(0.990838, 1)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+rotation = 0.00591004
+shape = SubResource("CapsuleShape2D_r1jae")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="BodyEnter"]

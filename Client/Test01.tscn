@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bp4e30s0k061t"]
 
-[ext_resource type="Script" path="res://Test01.cs" id="1_bgmba"]
+[ext_resource type="Script" path="res://Script/Test01.cs" id="1_bgmba"]
 
 [node name="Test" type="Control" node_paths=PackedStringArray("_textEdit", "_richTextLabel")]
 layout_mode = 3

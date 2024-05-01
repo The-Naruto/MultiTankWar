@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqcr6paf7avty"]
+
+[ext_resource type="Texture2D" uid="uid://b6vefj37pka0m" path="res://assets/Tanks/tankBlue.png" id="1_k6ptp"]
+[ext_resource type="Script" path="res://ControlHunman.cs" id="1_ulmf6"]
+[ext_resource type="Texture2D" uid="uid://cycxg2p4mgejm" path="res://assets/Tanks/tankBlue_outline.png" id="2_rgxm7"]
+[ext_resource type="Texture2D" uid="uid://dm5ftbsoshae5" path="res://assets/Tanks/barrelBlue.png" id="3_m74jv"]
+[ext_resource type="Texture2D" uid="uid://c5h00x0ra4sw5" path="res://assets/Tanks/barrelBlue_outline.png" id="3_mewyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bx6i"]
+size = Vector2(82, 79)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ulmf6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_rgxm7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2"]
+texture = ExtResource("1_k6ptp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D2/Sprite2D"]
+position = Vector2(0, -33)
+texture = ExtResource("3_mewyb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D2/Sprite2D/Sprite2D3"]
+texture = ExtResource("3_m74jv")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D2/Sprite2D/Sprite2D3/Sprite2D4"]
+position = Vector2(-1, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_6bx6i")
+
+[node name="Camera2D" type="Camera2D" parent="."]

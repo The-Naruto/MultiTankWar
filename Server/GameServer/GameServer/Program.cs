@@ -1,13 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GameServer.Servers;
+using GameServer.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Serilog.Extensions.Logging;
+using Serilog.Extensions.Logging; 
 
- 
 
 //// 这种方式配置只能 这样用  Log.Debug("11");
 Log.Logger = new LoggerConfiguration().WriteTo.Console().MinimumLevel.Debug().CreateLogger();
@@ -18,8 +18,10 @@ var hostBuilder = Host.CreateDefaultBuilder(args);
 
 hostBuilder.ConfigureServices((context, services) =>
 {
-     
-    services.AddHostedService<MyServer02>();
+    services.AddSingleton<ServerCache>();
+    services.AddSingleton<MsgHandler>();
+    services.AddSingleton<ClientEventHandler>();
+    services.AddHostedService<MyServer03>();
 });
 
 
