@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MultiTankWar"
 config/tags=PackedStringArray("2d", "跟做", "进行中")
-run/main_scene="res://main_map.tscn"
+run/main_scene="res://TestSence/Chapter4.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
 

@@ -14,33 +14,33 @@ public partial class MainScript : Node
 
     public override void _Ready()
     {
-        //网络模块
-        NetManager.AddListener("Enter", OnEnter);
-        NetManager.AddListener("List", OnList);
-        NetManager.AddListener("Move", OnMove);
-        NetManager.AddListener("Leave", OnLeave);
-        NetManager.AddListener("Attack", OnAttack);
-        NetManager.AddListener("Die", OnDie);
-        GD.Print("ready to connect");
-        NetManager.Connect("127.0.0.1", 8888);
-        //添加一个角色
-        humanpfb = ResourceLoader.Load<PackedScene>("res://AsyncPlayer.tscn");
-        myHumanPfb = ResourceLoader.Load<PackedScene>("res://Player.tscn");
-
-        myHuman = (ControlHunman)CreatePlayer(true);
-
-        otherHumans.Add(NetManager.GetDesc(), myHuman);
-        //发送协议
-        Vector2 pos = myHuman.Position;
-        float eul = myHuman.Rotation;
-        string sendStr = "Enter|";
-        sendStr += NetManager.GetDesc() + ",";
-        sendStr += pos.X + ",";
-        sendStr += pos.Y + ",";
-        sendStr += "0,";
-        sendStr += eul + ",";
-        NetManager.Send(sendStr);
-        NetManager.Send("List|");
+   //  //网络模块
+   //  NetManager.AddListener("Enter", OnEnter);
+   //  NetManager.AddListener("List", OnList);
+   //  NetManager.AddListener("Move", OnMove);
+   //  NetManager.AddListener("Leave", OnLeave);
+   //  NetManager.AddListener("Attack", OnAttack);
+   //  NetManager.AddListener("Die", OnDie);
+   //  GD.Print("ready to connect");
+   //  NetManager.Connect("127.0.0.1", 8888);
+   //  //添加一个角色
+   //  humanpfb = ResourceLoader.Load<PackedScene>("res://AsyncPlayer.tscn");
+   //  myHumanPfb = ResourceLoader.Load<PackedScene>("res://Player.tscn");
+   //
+   //  myHuman = (ControlHunman)CreatePlayer(true);
+   //
+   //  otherHumans.Add(NetManager.GetDesc(), myHuman);
+   //  //发送协议
+   //  Vector2 pos = myHuman.Position;
+   //  float eul = myHuman.Rotation;
+   //  string sendStr = "Enter|";
+   //  sendStr += NetManager.GetDesc() + ",";
+   //  sendStr += pos.X + ",";
+   //  sendStr += pos.Y + ",";
+   //  sendStr += "0,";
+   //  sendStr += eul + ",";
+   //  NetManager.Send(sendStr);
+   //  NetManager.Send("List|");
     }
 
     public override void _Process(double delta)

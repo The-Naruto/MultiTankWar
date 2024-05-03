@@ -21,7 +21,14 @@ hostBuilder.ConfigureServices((context, services) =>
     services.AddSingleton<ServerCache>();
     services.AddSingleton<MsgHandler>();
     services.AddSingleton<ClientEventHandler>();
-    services.AddHostedService<MyServer03>();
+   // //简单的回声服务
+   // services.AddHostedService<MyServer01>();
+   // //多人聊天服务
+   // services.AddHostedService<MyServer02>();
+   // //坦克大乱斗服务器
+   // services.AddHostedService<MyServer03>();
+    //简单的回声服务带长度
+    services.AddHostedService<MyServer04>();
 });
 
 
